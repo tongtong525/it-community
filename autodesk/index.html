@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autodesk 疑难问题 - IT 技术社区</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .autodesk-page {
+            padding: 2rem 0;
+            background: var(--bg-color);
+            min-height: 100vh;
+        }
+
+        .autodesk-header {
+            background: linear-gradient(135deg, #0696D7 0%, #005A9C 100%);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .autodesk-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .autodesk-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .pdf-download-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .pdf-download-section h3 {
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .btn-download {
+            display: inline-block;
+            background: #0696D7;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-download:hover {
+            background: #005A9C;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .faq-section {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .faq-category {
+            margin-bottom: 2rem;
+        }
+
+        .faq-category h2 {
+            color: #0696D7;
+            border-bottom: 2px solid #0696D7;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--bg-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid #0696D7;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .faq-question::before {
+            content: "❓";
+            font-size: 1.2rem;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            padding-left: 2rem;
+        }
+
+        .faq-answer::before {
+            content: "✅ ";
+        }
+
+        .error-code {
+            background: #FEF3C7;
+            border: 1px solid #F59E0B;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #92400E;
+            display: inline-block;
+            margin: 0.5rem 0;
+        }
+
+        .tip-box {
+            background: #ECFDF5;
+            border: 1px solid #10B981;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .tip-box::before {
+            content: "💡 ";
+            font-weight: 600;
+            color: #059669;
+        }
+
+        .warning-box {
+            background: #FEF2F2;
+            border: 1px solid #EF4444;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .warning-box::before {
+            content: "⚠️ ";
+            font-weight: 600;
+            color: #DC2626;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .search-box {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #0696D7;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">💻</span>
+                <span class="logo-text">IT 技术社区</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html#topics">技术话题</a></li>
+                <li><a href="../index.html#articles">技术文章</a></li>
+                <li><a href="../index.html#projects">项目展示</a></li>
+                <li><a href="../index.html#about">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 页面头部 -->
+    <header class="autodesk-header">
+        <div class="container">
+            <h1>🔧 Autodesk 疑难问题解答</h1>
+            <p>AutoCAD · 3ds Max · Maya · Revit · Inventor</p>
+        </div>
+    </header>
+
+    <div class="autodesk-page">
+        <div class="content-container">
+            <!-- 返回链接 -->
+            <a href="../index.html" class="back-link">← 返回首页</a>
+
+            <!-- PDF 下载区域 -->
+            <div class="pdf-download-section">
+                <h3>📄 完整疑难问题手册（含图解）</h3>
+                <p>下载 PDF 版本，包含详细步骤截图和图示说明</p>
+                <a href="../downloads/Autodeskyinan.pdf" class="btn-download" download>
+                    📥 下载 PDF 手册
+                </a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                    文件大小：约 2MB | 更新日期：2026-03-11
+                </p>
+            </div>
+
+            <!-- 搜索框 -->
+            <div class="search-box">
+                <input type="text" id="faqSearch" placeholder="🔍 搜索问题或错误代码..." onkeyup="searchFAQ()">
+            </div>
+
+            <!-- FAQ 内容区域 -->
+            <div class="faq-section">
+                
+                <!-- 安装激活问题 -->
+                <div class="faq-category" data-category="install">
+                    <h2>📦 安装与激活问题</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">安装时提示"错误 1603：安装失败"</div>
+                        <div class="faq-answer">
+                            <p><strong>原因：</strong>通常是由于权限不足或之前版本残留导致</p>
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>以管理员身份运行安装程序</li>
+                                <li>完全卸载之前的 Autodesk 产品</li>
+                                <li>清理注册表残留（使用 Autodesk 官方卸载工具）</li>
+                                <li>关闭杀毒软件后重试</li>
+                            </ol>
+                            <div class="tip-box">
+                                建议使用 Autodesk 官方提供的 Uninstall Tool 进行彻底清理
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">激活时显示"错误代码 0002.0"</div>
+                        <div class="faq-answer">
+                            <p><strong>原因：</strong>网络连接问题或激活服务器无法访问</p>
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>检查网络连接是否正常</li>
+                                <li>尝试使用离线激活方式</li>
+                                <li>联系 Autodesk 客服获取激活码</li>
+                                <li>检查防火墙设置，确保允许 Autodesk 访问网络</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">许可证管理器无法启动</div>
+                        <div class="faq-answer">
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>打开服务管理器（services.msc）</li>
+                                <li>找到"Autodesk Desktop Licensing Service"</li>
+                                <li>右键点击，选择"启动"</li>
+                                <li>将启动类型设置为"自动"</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 常见错误代码 -->
+                <div class="faq-category" data-category="error">
+                    <h2>🔴 常见错误代码</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="error-code">错误 0005.0</span> - 许可检出失败</div>
+                        <div class="faq-answer">
+                            <p><strong>原因：</strong>许可证服务异常或网络问题</p>
+                            <p><strong>解决方案：</strong>重启 Autodesk Desktop Licensing Service 服务，或重新登录 Autodesk 账户</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="error-code">错误 12029</span> - 无法连接到服务器</div>
+                        <div class="faq-answer">
+                            <p><strong>原因：</strong>网络连接中断或代理设置问题</p>
+                            <p><strong>解决方案：</strong>检查网络设置，禁用代理服务器，或尝试使用离线模式</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question"><span class="error-code">错误 1603</span> - 安装失败</div>
+                        <div class="faq-answer">
+                            <p><strong>原因：</strong>安装过程中断或文件损坏</p>
+                            <p><strong>解决方案：</strong>重新下载安装文件，以管理员身份运行，关闭杀毒软件</p>
+                            <div class="warning-box">
+                                确保磁盘空间充足，临时文件夹可写
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 性能优化 -->
+                <div class="faq-category" data-category="performance">
+                    <h2>⚡ 性能优化</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">软件运行卡顿，响应缓慢</div>
+                        <div class="faq-answer">
+                            <p><strong>优化建议：</strong></p>
+                            <ol>
+                                <li>关闭不必要的后台程序</li>
+                                <li>降低图形显示质量（选项 → 系统 → 图形性能）</li>
+                                <li>清理临时文件和缓存</li>
+                                <li>增加虚拟内存设置</li>
+                                <li>更新显卡驱动程序</li>
+                            </ol>
+                            <div class="tip-box">
+                                定期使用 PURGE 命令清理未使用的项目，减小文件大小
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">大文件打开速度慢</div>
+                        <div class="faq-answer">
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>使用局部加载（PARTIALLOAD）</li>
+                                <li>关闭不必要的图层和块</li>
+                                <li>使用外部参照代替嵌入</li>
+                                <li>定期使用 AUDIT 修复文件错误</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 功能使用技巧 -->
+                <div class="faq-category" data-category="tips">
+                    <h2>🎨 功能使用技巧</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">如何恢复未保存的文件？</div>
+                        <div class="faq-answer">
+                            <p><strong>自动保存位置：</strong></p>
+                            <ul>
+                                <li>AutoCAD: <code>%TEMP%</code> 或选项中的自动保存路径</li>
+                                <li>查找 .sv$ 文件，重命名为 .dwg 即可打开</li>
+                            </ul>
+                            <div class="tip-box">
+                                建议设置自动保存时间为 10 分钟，降低数据丢失风险
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">如何批量打印多个图纸？</div>
+                        <div class="faq-answer">
+                            <p><strong>使用发布功能：</strong></p>
+                            <ol>
+                                <li>输入 PUBLISH 命令</li>
+                                <li>添加需要打印的图纸</li>
+                                <li>选择打印机和打印设置</li>
+                                <li>点击"发布"开始批量打印</li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">自定义快捷键和命令别名</div>
+                        <div class="faq-answer">
+                            <p><strong>修改方法：</strong></p>
+                            <ol>
+                                <li>编辑 PGP 文件（命令：EDITALIAS）</li>
+                                <li>添加自定义命令别名</li>
+                                <li>保存后输入 REINIT 重新加载</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 文件兼容性 -->
+                <div class="faq-category" data-category="compatibility">
+                    <h2>💾 文件兼容性</h2>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">高版本文件无法在低版本打开</div>
+                        <div class="faq-answer">
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>在高版本中使用"另存为"，选择低版本格式</li>
+                                <li>使用 DWG TrueView 进行版本转换</li>
+                                <li>导出为 DXF 格式（兼容性更好）</li>
+                            </ol>
+                            <div class="warning-box">
+                                低版本可能无法识别高版本的新功能，请提前告知协作者
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">外部参照丢失或路径错误</div>
+                        <div class="faq-answer">
+                            <p><strong>解决方案：</strong></p>
+                            <ol>
+                                <li>使用 XREF 管理器重新指定路径</li>
+                                <li>使用"电子传递"（ETRANSMIT）打包文件</li>
+                                <li>设置项目文件夹路径</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 联系支持 -->
+            <div class="faq-section" style="text-align: center;">
+                <h2>📞 需要更多帮助？</h2>
+                <p>如果以上方法无法解决您的问题，请联系：</p>
+                <div style="margin-top: 1.5rem;">
+                    <p>🌐 <a href="https://knowledge.autodesk.com" target="_blank">Autodesk 知识库</a></p>
+                    <p>💬 <a href="https://forums.autodesk.com" target="_blank">Autodesk 官方论坛</a></p>
+                    <p>📧 社区技术支持：support@itcommunity.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 IT 技术社区 - Autodesk 疑难问题专区</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 搜索功能
+        function searchFAQ() {
+            const input = document.getElementById('faqSearch');
+            const filter = input.value.toLowerCase();
+            const items = document.querySelectorAll('.faq-item');
+
+            items.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                item.style.display = text.includes(filter) ? 'block' : 'none';
+            });
+        }
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
